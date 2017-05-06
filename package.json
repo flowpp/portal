@@ -1,0 +1,25 @@
+{
+  "name": "flow-portal",
+  "version": "1.0.0",
+  "description": "Flowpp portal",
+  "main": "index.html",
+  "scripts": {
+    "start": "f2eserver start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.coding.net/shy2850/flow-portal.git"
+  },
+  "keywords": [
+    "fullpage",
+    "flowpp",
+    "flow"
+  ],
+  "author": "shiyangyang@flowpp.com",
+  "license": "MIT",
+  "devDependencies": {
+    "fullpage.js": "^2.9.4",
+    "jquery": "^3.2.1"
+  }
+}
