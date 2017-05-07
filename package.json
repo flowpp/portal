@@ -19,6 +19,7 @@
   "author": "shiyangyang@flowpp.com",
   "license": "MIT",
   "devDependencies": {
+    "bootstrap": "^3.3.7",
     "fullpage.js": "^2.9.4",
     "jquery": "^3.2.1"
   }

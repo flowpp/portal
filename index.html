@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="Keywords" content="移动互联网大数据, 移动数据分析, 流量精准识别, 大数据平台, Flow, Flowpp"/>  
-   	<meta name="Description" content="专注于移动互联网数据分析，自主研发全球领先的核心算法技术。"/> 
-	<title>Flow++</title>
-	<link rel="stylesheet" href="css/index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <meta name="Keywords" content="移动互联网大数据, 移动数据分析, 流量精准识别, 大数据平台, Flow, Flowpp"/>  
+       <meta name="Description" content="专注于移动互联网数据分析，自主研发全球领先的核心算法技术。"/> 
+    <title>Flow++</title>
+    <link rel="stylesheet" href="css/index.css">
+	<script src="js/index.js"></script>
 </head>
 <body>
-	<div id="flowpp-container" class="flowpp-container">
-		<div class="section">Some section 1</div>
-		<div class="section">Some section 2</div>
-		<div class="section">Some section 3</div>
-		<div class="section">Some section 4</div>
-	</div>
-<script src="js/index.js"></script>
+    <header class="navbar navbar-fixed-top bs-docs-nav" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+            	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+	                <span class="sr-only">展开</span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span> 
+	                <span class="icon-bar"></span>
+	            </button>
+                <a href="/" class="navbar-brand">Flow++</a>
+            </div>
+            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                <ul id="flow-menu" class="nav navbar-nav navbar-right">
+                    <li data-menuanchor="flow-index">
+                    	<a href="#flow-index">首页</a>
+                    </li>
+                    <li data-menuanchor="flow-flowpp">
+                    	<a href="#flow-flowpp">Flow++</a>
+                    </li>
+                    <li data-menuanchor="flow-flowai">
+                    	<a href="#flow-flowai">FlowAI</a>
+                    </li>
+                    <li data-menuanchor="flow-about">
+                    	<a href="#flow-about">关于我们</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="flowpp-container" class="flowpp-container">
+    	$include["widget/flow-index.html"]
+    	$include["widget/flow-flowpp.html"]
+    	$include["widget/flow-flowai.html"]
+    	$include["widget/flow-about.html"]
+    	$include["widget/flow-links.html"]
+    </div>
 </body>
 </html>
