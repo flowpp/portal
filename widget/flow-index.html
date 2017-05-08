@@ -1,1 +1,80 @@
-<div class="section flow-index text-center">Some section 1</div>
+<div class="section flow-index text-center">
+    <div class="container background-views">
+        <img src="/img/airship-line.png"
+            alt="building1"
+            class="visible-lg visible-md"
+            data-animate="fadeIn"
+            data-delay="200"
+            style="right: 0;  top: 0;">
+        <div class="airship visible-lg visible-md"
+            data-animate="fadeIn"
+            data-delay="200"
+        >
+            <img src="/img/airship.png" alt="building1">
+        </div>
+
+        <img src="/img/mini-cloud.png"
+            alt="building1"
+            class="visible-lg visible-md"
+            data-animate="fadeInRight"
+            style="left: 200px;  bottom: 70%;">
+
+        <img src="/img/building1.png"
+            alt="building1"
+            data-animate="bounceInDown"
+            data-delay="500"
+            class="hidden-xs"
+            style="left: 0px;  max-height: 80%;">
+        <img src="/img/building2.png"
+            alt="building2"
+            data-animate="bounceInDown"
+            data-delay="200"
+            class=""
+            style="left: 100px;  max-height: 60%;">
+        <img src="/img/building3.png"
+            alt="building3"
+            data-animate="bounceInDown"
+            data-delay="400"
+            class="visible-lg"
+            style="left: 300px;  max-height: 84%;">
+        <img src="/img/building4.png"
+            alt="building4"
+            data-animate="bounceInDown"
+            data-delay="500"
+            class=""
+            style="right: 20%; max-width: 28%;">
+        <img src="/img/building5.png"
+            alt="building5"
+            data-animate="bounceInDown"
+            class="hidden-xs"
+            style="right: 0px; max-height: 90%;">
+    </div>
+    <div class="context-view">
+        <h2 data-animate="fadeInUp" data-delay="800">用数据驱动智慧商业</h2>
+        <p>&nbsp;</p>
+        <p data-animate="fadeInUp" data-delay="400">
+            <img src="/img/icon-channels.png" alt="icon-channels">
+        </p>
+        <p>&nbsp;</p>
+        <p data-animate="fadeInUp" data-delay="0">
+            <a class="btn btn-primary" href="#" role="button">试用Flow++</a>
+        </p>
+    </div>
+    <div class="wave wave1"></div>
+    <div class="wave wave2"></div>
+</div>
+<script>
+    $.addSectionConfig(function () {
+        var logo = $('.flow-logo');
+        var menu = $('#flow-menu');
+        var combine = logo.add(menu);
+        return {
+            afterLoad: function () {
+                combine.addClass('inverse');
+            },
+            onLeave: function () {
+                combine.removeClass('inverse');
+            }
+        }
+    });
+</script>

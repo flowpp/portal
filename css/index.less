@@ -1,11 +1,54 @@
 @import (inline) url("../node_modules/bootstrap/dist/css/bootstrap.css");
 @import (inline) url("../node_modules/fullpage.js/dist/jquery.fullpage.css");
-
-.flowpp-container {
-	
+@import (inline) url("../node_modules/animate.css/animate.css");
+body {
+    -webkit-font-smoothing: antialiased;
 }
-#flow-menu a {
-	color: #fff;
+
+.navbar-fixed-top {
+    .icon-bar {
+        background-color: #fff;
+    }
+    .flow-logo {
+        float: left;
+        margin: 8px 0 0 15px;
+        text-indent: -9999em;
+        width: 122px;
+        height: 36px;
+            background: url("../img/logo.png");
+        &.inverse {
+            background: url("../img/logo-opacity.png");
+        }
+    }
+    .navbar-collapse {
+        box-shadow: none;
+        .navbar-nav {
+            margin-top: 0;
+            a {
+                color: #239ed7;
+                &:focus,
+                &:hover {
+                    background: none;
+                }
+            }
+            &.inverse {
+                a {
+                    color: #fff;
+                }
+            }
+        }
+        &.in {
+            a {
+                background: rgba(0, 0, 0, .3);
+            }
+        }
+    }
+
+
 }
 
 @import url("flow-index.less");
+@import url("flow-flowai.less");
+@import url("flow-flowpp.less");
+@import url("flow-about.less");
+@import url("flow-links.less");

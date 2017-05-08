@@ -1,4 +1,104 @@
+@keyframes wave1 {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-10000px);
+    }
+}
+
+@keyframes wave2 {
+    0% {
+        transform: translateX(300px);
+    }
+    100% {
+        transform: translateX(-15000px);
+    }
+}
+
+@keyframes airship-inner {
+    0% {
+        transform: translateX(80px);
+    }
+    56% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(80px);
+    }
+}
+
+
 .flow-index {
-	background-color: #3bada3;
-	background-image: linear-gradient(to right, #239ed7, #43af97);
+    @Color: #215167;
+    @WaveHiehgt: 240px;
+
+    background-color: #3bada3;
+    background-image: linear-gradient(to right, #239ed7, #43af97);
+    overflow: hidden;
+    
+    .background-views {
+        position: relative;
+        height: 90%;
+        > * {
+            position: absolute;
+            bottom: @WaveHiehgt - 200px;
+        }
+    }
+    .context-view {
+        position: absolute;
+        width: 100%;
+        bottom: 45%;
+        color: #fff;
+        h2 {
+            font-weight: 100;
+        }
+        img {
+            max-width: 90%;
+        }
+        .btn-primary {
+            background: #90d8e0;
+            border-color: #90d8e0;
+            color: lighten(@Color, 15%);
+            width: 180px;
+            font: normal 16px/2 "Microsoft Yahei";
+            opacity: .9;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    .airship {
+        right: 216px;
+        top: 55px;
+        width: 360px;
+        height: 60px;
+        overflow: hidden;
+        img {
+            position: absolute;
+            left: 56px;
+            animation: airship-inner 10s infinite;
+        }
+        &.fadeOut {
+            display: none !important;
+        }
+    }
+
+    .wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 18000px;
+        height: @WaveHiehgt;
+        background: url(../img/wave.png) 0 0 repeat-x;
+        animation: wave1 20s linear infinite;
+        &.wave2 {
+            left: 300px;
+            opacity: .5;
+            filter: alpha(opacity=50);
+            animation: wave2 20s linear infinite;
+        }
+    }
+
 }
