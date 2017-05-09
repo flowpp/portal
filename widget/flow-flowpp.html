@@ -1,1 +1,53 @@
-<div class="section flow-flowpp">Some section 2</div>
+<div class="section flow-flowpp" id="flowpp-tab">
+    <div class="flowpp-categories">
+        <ul class="container" class="handle">
+            <li class="flowpp-item flowpp-app active" data-animate="fadeInUp" data-delay="100">
+                <a href="#view-app" class="current">应用识别</a>
+                <!--<div class="container">-->
+                <img data-animate="fadeInUp" data-delay="200" src="../img/flowpp-app-desc.png" alt="私有协议，加密协议，无坚不摧">
+                <!--</div>-->
+            </li>
+            <li class="flowpp-item flowpp-act" data-animate="fadeInUp" data-delay="150">
+                <a href="#view-act">行为识别</a>
+            </li>
+        </ul>
+    </div>
+    <div class="container background-views">
+        <div class="people hidden-md hidden-sm hidden-xs">
+            <img class="person" src="../img/flowpp-person.png" alt="person">
+            <!--<img class="person-message" src="../img/flowpp-person-message.png" alt="person-message">-->
+        </div>
+        <div class="demo show" data-animate="fadeInUp" data-delay="300">
+            <div id="view-app" class="view-app">
+                <img class="phone-shell" src="../img/flowpp-phone.png" alt="phone">
+                <div class="icon-container" data-animate="fadeInUp" data-delay="1500">
+                    <img class="mask" src="../img/flowpp-icon-mask.png" alt="mask">
+                    <img class="wechat" src="../img/flowpp-icon-wechat.png" alt="wechat">
+                    <img class="dot" src="../img/flowpp-icon-dot.png" alt="dot" data-animate="bounceIn" data-delay="2700">
+                </div>
+                <img src="../img/flowpp-icon-evernote.png" alt="evernote" data-animate="fadeInUp" data-delay="1550">
+                <img src="../img/flowpp-icon-love.png" alt="love" data-animate="fadeInUp" data-delay="1600">
+                <img src="../img/flowpp-icon-weibo.png" alt="weibo" data-animate="fadeInUp" data-delay="1650">
+                <img src="../img/flowpp-icon-chat.png" alt="chat" data-animate="fadeInUp" data-delay="1700">
+                <img src="../img/flowpp-icon-home.png" alt="home" data-animate="fadeInUp" data-delay="1750">
+                <img src="../img/flowpp-icon-car.png" alt="car" data-animate="fadeInUp" data-delay="1800">
+                <img src="../img/flowpp-icon-phone.png" alt="phone" data-animate="fadeInUp" data-delay="1850">
+                <img src="../img/flowpp-icon-contact.png" alt="contact" data-animate="fadeInUp" data-delay="1900">
+            </div>
+            <div id="view-act" class="view-act">
+                <img class="phone-shell" src="../img/flowpp-phone.png" alt="phone">
+                <img class="screen" src="../img/flowpp-screen.png" alt="screen">
+                <img class="dialog1" src="../img/flowpp-dialog1.png" alt="dialog1">
+                <img class="dialog2" src="../img/flowpp-dialog2.png" alt="dialog2">
+            </div>
+        </div>
+        <img class="grass1 hidden-sm hidden-xs" src="../img/flowpp-grass1.png" alt="grass1">
+        <img class="grass2 hidden-sm hidden-xs" src="../img/flowpp-grass2.png" alt="grass2">
+        <img class="grass3 hidden-sm hidden-xs" src="../img/flowpp-grass3.png" alt="grass3">
+    </div>
+
+
+    <script>
+        $('#flowpp-tab').tabs({ type: 'fade' });
+    </script>
+</div>

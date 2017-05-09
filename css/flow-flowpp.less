@@ -1,3 +1,224 @@
+@col-offset-left: -79px;
+@col-offset-top: 88px;
+
+@row-offset-left: 102px;
+@row-offset-top: 44px;
+
+@line1-left: 506px;
+@line1-top: 112px;
+
+@line2-left: @line1-left + @col-offset-left;
+@line2-top: @line1-top + @col-offset-top;
+
+@line6-left: @line1-left + @col-offset-left * 4.4;
+@line6-top: @line1-top + @col-offset-top * 4.4;
+
+@keyframes icon {
+    0% {
+        top: 0;
+    }
+    100% {
+       top: -10px;
+    }
+}
+
+// 定义一个偏移函数，偏移量为 left + 102, top + 44
+.row-offset(@left, @top, @count) {
+    left: @left + @row-offset-left * @count;
+    top: @top + @row-offset-top * @count;
+}
+
 .flow-flowpp {
-    
+    .container {
+        height: 100%;
+        position: relative;
+    }
+    .background-views {
+        img {
+            position: absolute;
+        }
+        .people {
+            position: absolute;
+            top: 15%;
+            left: 45%;
+            z-index: 10;
+            .person {
+                position: static;
+            }
+            .person-message {
+                top: 25px;
+                right: -50px;
+            }
+        }
+        .demo {
+            position: absolute;
+            right: -25%;
+            bottom: 0;
+            width: 1142px;
+            height: 702px;
+            z-index: 99;
+            // background-image: url(../img/flowpp-phone.png);
+            // background-size: contain;
+            overflow: visible;
+            img {
+                position: absolute;
+            }
+            .view-app {
+                .icon-container {
+                    position: absolute;
+                    .row-offset(@line1-left, @line1-top, 0);
+                    animation-duration: .5s;
+                    img:nth-of-type(1) {
+                        top: 4px;
+                    }
+                    img:nth-of-type(2) {
+                        animation: icon .3s linear 3s;
+                        animation-fill-mode:forwards;
+                    }
+                    img:nth-of-type(3) {
+                        position: absolute;
+                        top: 6px;
+                        left: 100px;
+                    }
+                }
+                &>img {
+                    animation-duration: .5s;
+                }
+                &>img:nth-of-type(2) {
+                    .row-offset(@line1-left, @line1-top, 1);
+                }
+                &>img:nth-of-type(3) {
+                    .row-offset(@line1-left, @line1-top, 2);
+                }
+                &>img:nth-of-type(4) {
+                    .row-offset(@line1-left, @line1-top, 3);
+                }
+                &>img:nth-of-type(5) {
+                    .row-offset(@line2-left, @line2-top, 0);
+                }
+                &>img:nth-of-type(6) {
+                    .row-offset(@line2-left, @line2-top, 1);
+                }
+                &>img:nth-of-type(7) {
+                    .row-offset(@line2-left, @line2-top, 2);
+                }
+                &>img:nth-of-type(8) {
+                    .row-offset(@line6-left, @line6-top, 0);
+                }
+                &>img:nth-of-type(9) {
+                    .row-offset(@line6-left, @line6-top, 1);
+                }
+            }
+            .view-act {
+                .screen {
+                    left: 87px;
+                    top: 57px;
+                }
+                .dialog1 {
+                    left: 330px;
+                    top: 291px;
+                }
+                .dialog2 {
+                    left: 205px;
+                    top: 423px;
+                }
+            }
+        }
+        .grass1 {
+            left: 129px;
+            top: 640px;
+        }
+        .grass2 {
+            right: 99px;
+            top: 123px;
+        }
+        .grass3 {
+            right: 250px;
+            bottom: 62px;
+        }
+    }
+    .flowpp-categories {
+        list-style: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        .container {
+            position: relative;
+            top: 40%;
+            .flowpp-item {
+                display: inline-block;
+                position: relative;
+                margin-right: 60px;
+                height: 80px;
+                background-repeat: no-repeat;
+                background-position: center top;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+                a {
+                    display: block;
+                    width: 70px;
+                    height: 100%;
+                    text-indent: -9999px; // 隐藏文字显示，图片代替
+                }
+                img {
+                    position: absolute;
+                    top: 150%;
+                    left: 0;
+                }
+            }
+        }
+    }
+    .flowpp-app {
+        background-image: url(../img/flowpp-app.png);
+        &:hover,
+        &.active {
+            background-image: url(../img/flowpp-app-active.png);
+            background-position: center 1px; // 修复图片大小问题
+        }
+    }
+    .flowpp-act {
+        position: relative;
+        top: -1px; // 修复图片大小问题
+        background-image: url(../img/flowpp-act.png);
+        &:hover,
+        &.active {
+            background-image: url(../img/flowpp-act-active.png);
+        }
+    }
+}
+
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .flow-flowpp {
+        .flowpp-categories {
+            .container {
+                position: relative;
+                top: 25%;
+                // transition: top .3s linear;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .flow-flowpp {
+        .background-views {
+            .demo {
+                bottom: -200px;
+            }
+        }
+        .flowpp-categories {
+            .container {
+                position: relative;
+                top: 25%;
+                width: 100%;
+                text-align: center;
+                // transition: top .3s linear;
+            }
+        }
+    }
 }
