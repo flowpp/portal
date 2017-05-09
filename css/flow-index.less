@@ -111,12 +111,52 @@
         height: @WaveHiehgt - 50px;
         color: @Color;
         .number-holder {
-
+            @NumHeight: 72px;
+            font-size: 40px;
+            height: @NumHeight;
+            line-height: @NumHeight;
+            > span {
+                float: left;
+                width: 30px;
+                height: @NumHeight;
+            }
+            .number {
+                text-indent: -9999em;
+                text-align: center;
+                width: 40px;
+                line-height: @NumHeight;
+                margin-right: 20px;
+                border-radius: 11px;
+                background: url(../img/icon-nums.png) no-repeat center 4px #cdecf8;
+                transition: all .5s ease;
+            }
+            .symbol {
+                margin-left: -20px;
+                text-align: center;
+            }
+            .loop(@counter) when (@counter < 10) {
+                .number-@{counter} {
+                    @left: 4px - @counter * 60px;
+                    background-position: center @left;
+                }
+                .loop(@counter + 1);
+            }
+            .loop(0);
         }
         @media (max-width: 768px) {
             width: 100%;
             left: 0;
             margin: 0;
+            .number-holder {
+                width: 360px;
+                .number {
+                    width: 30px;
+                    margin-right: 6px;
+                }
+                .symbol {
+                    display: none;
+                }
+            }
         }
     }
 }

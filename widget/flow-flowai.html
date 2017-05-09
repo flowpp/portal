@@ -1,25 +1,42 @@
 <div class="section flow-flowai">
     <div class="container">
-        <h2>FlowAI</h2>
-        <p style="font-size: 24px;">实时移动互联网大数据平台</p>
-        <div class="handle">
-            <a href="javascript:void(0)">
-                <img src="../img/data-visualization.png" alt="visualization">
-            </a>
-            <a href="javascript:void(0)">
-                <img src="../img/user-portrait.png" alt="user-portrait">
-            </a>
-            <a href="javascript:void(0)">
-                <img src="../img/deep-monitor.png" alt="deep-monitor">
-            </a>
+        <div class="col-sm-5 flowai-left">
+            <h2 class="flow-title">FlowAI</h2>
+            <p>实时移动互联网大数据平台</p>
+            <div class="handle row">
+                <a href="javascript:void(0)">
+                    <img src="../img/data-visualization.png" alt="visualization">
+                </a>
+                <a href="javascript:void(0)">
+                    <img src="../img/user-portrait.png" alt="user-portrait">
+                </a>
+                <a href="javascript:void(0)">
+                    <img src="../img/deep-monitor.png" alt="deep-monitor">
+                </a>
+            </div>
+            <div class="show flowai-desc">
+                <p class="fade">全天候自动流量数据分析xxx</p>
+                <p class="fade">360° 全方位用户勾画</p>
+                <p class="fade">7×24小时实时安全防御</p>
+            </div>
         </div>
-        <div class="show flowai-desc">
-            
+        <div class="col-sm-7 flowai-sketch">
+            <div class="visualization">
+                
+            </div>
         </div>
     </div>
 
 </div>
 <script>
+    $('.flow-flowai .flowai-left').tabs({
+        type: 'fadeIn',
+        target_class: 'animated fadeInLeft',
+        onChange: function (index) {
+            var sketch = $('.flowai-sketch').children().eq(index);
+
+        }
+    });
     $.addSectionConfig({
         afterLoad: function () {
             $('#fixed-header').addClass('inverse');

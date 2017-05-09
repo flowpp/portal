@@ -33,23 +33,23 @@
             var last_num = '';
             var nc = cfg.numberclass;
             var sc = cfg.symbolclass;
+            var format = cfg.format;
+            t.html(format.replace(/./g, function (c) {
+                if (/\d/.test(c)) {
+                    return '<span class="' + nc + '"></span>';
+                }
+                return '<span class="' + sc + '">' + c + '</span>';
+            }));
+
+            var nums = t.children('.' + nc);
             var run = function run () {
                 var num = Number(cfg.getData.call(t)) || 0;
                 if (num !== last_num) {
                     last_num = num;
-                    var str = '' + num;
-                    var format = cfg.format;
-                    var lackLen = str.length - format.match(/\d/g).length;
-                    var index = 0;
-
-                    t.html(format.replace(/./g, function (c) {
-                        if (/\d/.test(c)) {
-                            var d = str.charAt(lackLen + index) | 0;
-                            index++;
-                            return '<span class="' + nc + ' ' + nc + '-' + d + '">' + d + '</span>';
-                        }
-                        return '<span class="' + sc + '">' + c + '</span>';
-                    }));
+                    var str = (format.replace(/\D/g, '') + num).substr(-format.length + 2);
+                    nums.each(function (index) {
+                        $(this).attr({'class': nc + ' ' + nc + '-' + str.charAt(index)});
+                    });
                 }
                 if (t.data('update')) {
                     setTimeout(run, cfg.timeout);  
