@@ -42,14 +42,20 @@
             data-animate="bounceInDown"
             data-delay="500"
             class=""
-            style="right: 20%; max-width: 28%;">
+            style="right: 20%; max-width: 32%;">
+        <img src="/img/comment.png"
+            alt="comment"
+            data-animate="fadeInRight"
+            data-delay="2000"
+            class="visible-lg"
+            style="right: 20%; bottom: 400px; max-width: 32%;">
         <img src="/img/building5.png"
             alt="building5"
             data-animate="bounceInDown"
             class="hidden-xs"
             style="right: 0px; max-height: 90%;">
     </div>
-    <div class="context-view">
+    <div class="context-view text-center">
         <h2 data-animate="fadeInUp" data-delay="800">用数据驱动智慧商业</h2>
         <p>&nbsp;</p>
         <p data-animate="fadeInUp" data-delay="400">
@@ -62,18 +68,53 @@
     </div>
     <div class="wave wave1"></div>
     <div class="wave wave2"></div>
+    <div class="runtime-sum text-left">
+        <p>实时用户行为采集数</p>
+        <div class="number-holder"></div>
+    </div>
+    <img src="/img/mini-mouse.png"
+        alt="mini-mouse"
+        data-animate="fadeOutDown infinite"
+        title="mouse scroll down">
 </div>
 <script>
     $.addSectionConfig(function () {
         var logo = $('.flow-logo');
         var header = $('#fixed-header');
         var combine = logo.add(header);
+        var numHolder = $('.runtime-sum .number-holder');
+        
+        var sum = 0;
+        var needUpdate = false;
+        var updateData = function updateData () {
+            !needUpdate
+            ? setTimeout(updateData, 500)
+            : $.ajax({
+                url: 'http://180.76.162.170:1337/getSum',
+                dataType: 'jsonp',
+                success: function (data) {
+                    sum = data;
+                    setTimeout(updateData, 3000);
+                }
+            });
+        };
+        updateData();
+
+        numHolder.RuntimeSum({
+            update: true,
+            getData: function () {
+                return sum;
+            }
+        });
+
         return {
             afterLoad: function () {
                 combine.addClass('inverse');
+                needUpdate = true;
             },
             onLeave: function () {
                 combine.removeClass('inverse');
+                needUpdate = false;
             }
         }
     });

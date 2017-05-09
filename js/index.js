@@ -1,6 +1,8 @@
 $include["../node_modules/jquery/dist/jquery.js"];
 $include["../node_modules/bootstrap/dist/js/bootstrap.js"];
 $include["../node_modules/fullpage.js/dist/jquery.fullpage.js"];
+$include["runtime-sum.js"];
+$include["tabs.js"];
 (function ($) {
     // 处理各个 section 事件配置
     var all_section_config = {};

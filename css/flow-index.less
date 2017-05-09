@@ -18,20 +18,20 @@
 
 @keyframes airship-inner {
     0% {
-        transform: translateX(80px);
+        transform: rotate(-2deg) translate3d(80px, 4px, 0);
     }
     56% {
-        transform: translateX(0);
+        transform: rotate(-1deg) translate3d(0, 1px, 0);
     }
     100% {
-        transform: translateX(80px);
+        transform: rotate(-2deg) translate3d(80px, 4px, 0);
     }
 }
 
 
 .flow-index {
     @Color: #215167;
-    @WaveHiehgt: 240px;
+    @WaveHiehgt: 250px;
 
     background-color: #3bada3;
     background-image: linear-gradient(to right, #239ed7, #43af97);
@@ -71,7 +71,7 @@
 
     .airship {
         right: 216px;
-        top: 55px;
+        top: 56px;
         width: 360px;
         height: 60px;
         overflow: hidden;
@@ -100,5 +100,23 @@
             animation: wave2 20s linear infinite;
         }
     }
+    
+    .runtime-sum {
+        @Width: 600px;
+        position: absolute;
+        bottom: 0;
+        padding: 20px;
+        left: 50%;
+        margin-left: -@Width / 2;
+        height: @WaveHiehgt - 50px;
+        color: @Color;
+        .number-holder {
 
+        }
+        @media (max-width: 768px) {
+            width: 100%;
+            left: 0;
+            margin: 0;
+        }
+    }
 }
