@@ -66,8 +66,8 @@
 <script>
     $.addSectionConfig(function () {
         var logo = $('.flow-logo');
-        var menu = $('#flow-menu');
-        var combine = logo.add(menu);
+        var header = $('#fixed-header');
+        var combine = logo.add(header);
         return {
             afterLoad: function () {
                 combine.addClass('inverse');
