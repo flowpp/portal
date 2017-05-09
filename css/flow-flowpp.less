@@ -53,10 +53,11 @@
         .demo {
             position: absolute;
             right: -25%;
-            bottom: 0;
+            // bottom: 0;
+            top: 300px;
             width: 1142px;
             height: 702px;
-            z-index: 99;
+            z-index: 59;
             // background-image: url(../img/flowpp-phone.png);
             // background-size: contain;
             overflow: visible;
@@ -64,6 +65,7 @@
                 position: absolute;
             }
             .view-app {
+                overflow: visible;
                 .icon-container {
                     position: absolute;
                     .row-offset(@line1-left, @line1-top, 0);
@@ -133,62 +135,65 @@
             top: 123px;
         }
         .grass3 {
-            right: 250px;
+            right: 0px;
             bottom: 62px;
         }
     }
     .flowpp-categories {
-        list-style: none;
         position: absolute;
         left: 0;
         top: 0;
         width: 100%;
         height: 100%;
+
         .container {
-            position: relative;
-            top: 40%;
-            .flowpp-item {
+            top: 25%;
+            z-index: 99;
+            a {
                 display: inline-block;
-                position: relative;
-                margin-right: 60px;
+                width: 70px;
                 height: 80px;
+                text-indent: -9999px;
                 background-repeat: no-repeat;
                 background-position: center top;
-
-                &:last-child {
+                margin-right: 60px;
+                
+                &:nth-last-of-type(1) {
                     margin-right: 0;
                 }
-                a {
-                    display: block;
-                    width: 70px;
-                    height: 100%;
-                    text-indent: -9999px; // 隐藏文字显示，图片代替
-                }
-                img {
-                    position: absolute;
-                    top: 150%;
-                    left: 0;
+            }
+
+            .flowpp-app {
+                background-image: url(../img/flowpp-app.png);
+                &:hover,
+                &.active,
+                &.current {
+                    background-image: url(../img/flowpp-app-active.png);
+                    background-position: center 1px; // 修复图片大小问题
                 }
             }
+            .flowpp-act {
+                position: relative;
+                top: -1px; // 修复图片大小问题
+                background-image: url(../img/flowpp-act.png);
+                &:hover,
+                &.active,
+                &.current {
+                    background-image: url(../img/flowpp-act-active.png);
+                }
+            }
+            .description {
+                display: none;
+                margin-top: 40px;
+            }
+            .flowpp-app.current ~ .description {
+                display: block;
+            }
         }
+        
+
     }
-    .flowpp-app {
-        background-image: url(../img/flowpp-app.png);
-        &:hover,
-        &.active {
-            background-image: url(../img/flowpp-app-active.png);
-            background-position: center 1px; // 修复图片大小问题
-        }
-    }
-    .flowpp-act {
-        position: relative;
-        top: -1px; // 修复图片大小问题
-        background-image: url(../img/flowpp-act.png);
-        &:hover,
-        &.active {
-            background-image: url(../img/flowpp-act-active.png);
-        }
-    }
+    
 }
 
 
@@ -198,7 +203,6 @@
             .container {
                 position: relative;
                 top: 25%;
-                // transition: top .3s linear;
             }
         }
     }
@@ -214,10 +218,25 @@
         .flowpp-categories {
             .container {
                 position: relative;
-                top: 25%;
-                width: 100%;
+                top: 15%;
                 text-align: center;
                 // transition: top .3s linear;
+                .description {
+                    margin-top: 40px;
+                    position: absolute;
+                    left: -10%;
+                    right: -10%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .flow-flowpp {
+        .background-views {
+            .demo {
+                right: -85%;
             }
         }
     }
