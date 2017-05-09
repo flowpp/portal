@@ -1,4 +1,42 @@
 .flow-flowai {
     background: #223637;
     color: #fff;
+    .flow-title {
+        margin: 0;
+        + p {
+            font-size: 24px;
+            margin: 0 0 70px;
+        }
+    }
+    .handle {
+        > a {
+            text-align: center;
+            overflow: hidden;
+            float: left;
+            width: 100px;
+            height: 78px;
+            padding: 0 15px;
+            opacity: .7;
+            &.current {
+                height: 88px;
+                opacity: 1;
+            }
+            @media (max-width: 768px) {
+                width: 33.33%;
+            }
+        }
+    }
+    .flowai-desc {
+        position: relative;
+        color: #5a7376;
+        font: bold 24px/50px '方正正大黑简体', 'Microsoft Yahei';
+        > p {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+    .visualization {
+        height: 200px;
+    }
 }

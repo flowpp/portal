@@ -46,6 +46,7 @@
                  * @type {String}
                  */
                 current_class: 'current',
+                target_class: 'current',
                 /**
                  * 切换展示的内容组(必须是兄弟元素) 的父容器
                  * @type {String}
@@ -143,7 +144,7 @@
                             });
                             break;
                         default:
-                            items.eq(i).addClass(cfg.current_class).siblings().removeClass(cfg.current_class);
+                            items.eq(i).addClass(cfg.target_class).siblings().removeClass(cfg.target_class);
                     }
                     cfg.onChange(i);
                 }
