@@ -25,7 +25,7 @@ $include["../node_modules/fullpage.js/dist/jquery.fullpage.js"];
         });
 
         container.fullpage({
-            anchors: ['flow-index', 'flow-flowpp', 'flow-flowai', 'flow-about'],
+            anchors: ['flow-index', 'flow-flowpp', 'flow-flowai', 'flow-about', 'flow-links'],
             menu: '#flow-menu',
             onLeave: function(index, nextIndex, direction){
                 var section = sections.eq(index - 1);
