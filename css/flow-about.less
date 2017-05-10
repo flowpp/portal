@@ -1,3 +1,125 @@
+@keyframes satellite {
+    0% {
+        transform: translate3d(0, -1000px, 0);
+    }
+    40% {
+        transform: translate3d(0, 80px, 0);
+    }
+    50% {
+        transform: translate3d(0, -20px, 0);
+    }
+    60% {
+        transform: translate3d(0, 20px, 0);
+    }
+    70% {
+        transform: translate3d(0, -10px, 0);
+    }
+    80% {
+        transform: translate3d(0, 5px, 0);
+    }
+    90% {
+        transform: translate3d(0, -5px, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes moons-rotate {
+    0% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(-36deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
 .flow-about {
-    
+    img {
+        position: absolute;
+    }
+
+    .satellite {
+        position: absolute;
+        left: 50%;
+        margin-left: -50px;
+        top: 10%;
+        img{
+            transform: translate3d(0, -1000px, 0);
+            &.begin-animate {
+                transform: translate3d(0, 0, 0);
+                animation: satellite 3s ease-out;
+            }
+        }
+    }
+    .moons {
+        position: absolute;
+        right: 6%;
+        bottom: 70%;
+        margin-bottom: -50px;
+        img {
+            animation: moons-rotate 5s ease-out infinite;
+        }
+    }
+    .about-us {
+        right: 20%;
+        bottom: 60%;
+    }
+
+    .about-content {
+        position: absolute;
+        width: 80%;
+        left: 0;
+        bottom: 60%;
+        height: 240px;
+        margin-bottom: -250px;
+        background-color: #3bada3;
+        background-image: linear-gradient(100deg, #239ed7, #5db87b);
+        color: #fff;
+        font-size: 16px;
+        padding: 10px 20px;
+        .about-holder {
+            position: relative;
+            z-index: 1;
+            float: right;
+            height: 100%;
+            overflow: hidden;
+        }
+        .about-inner {
+            line-height: 20px;
+            li {
+                padding: 8px 0;
+                list-style: none;
+            }
+        }
+        @media (max-width: 992px) {
+            width: 100%;
+            font-size: 12px;
+            overflow-y: auto;
+            .about-inner {
+                padding: 0;
+                li {
+                    padding: 4px 0;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .satellite {
+            transform: scale(.6)
+        }
+    }
+
+    &:after {
+        content: " ";
+        position: absolute;
+        left: -5%;
+        bottom: -10%;
+        width: 50%;
+        height: 100%;
+        background: url(../img/surface.png) no-repeat left bottom;
+        background-size: 100% auto;
+    }
 }

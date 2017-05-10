@@ -1,9 +1,9 @@
 <div class="section flow-flowai">
     <div class="container">
         <div class="col-sm-5 flowai-left vertical-container">
-            <h2 class="flow-title">FlowAI</h2>
-            <p>实时移动互联网大数据平台</p>
-            <div class="handle row">
+            <h2 class="flow-title" data-animate="fadeInUp" data-delay="300">FlowAI</h2>
+            <p data-animate="fadeInUp" data-delay="400">实时移动互联网大数据平台</p>
+            <div class="handle row" data-animate="fadeInUp">
                 <a href="javascript:void(0)">
                     <img src="/img/data-visualization.png" alt="visualization">
                 </a>
@@ -14,7 +14,7 @@
                     <img src="/img/deep-monitor.png" alt="deep-monitor">
                 </a>
             </div>
-            <div class="show flowai-desc">
+            <div class="show flowai-desc" data-animate="fadeInUp">
                 <p class="fade">全天候自动流量数据分析</p>
                 <p class="fade">360° 全方位用户勾画</p>
                 <p class="fade">7×24小时实时安全防御</p>
@@ -64,9 +64,8 @@
         sketchHolder.find('[data-tabanimate]').addClass('animated fade');
 
         handleHolder.tabs({
-            // auto: true,
+            auto: true,
             type: 'fadeIn',
-            current: 2,
             target_class: 'animated fadeInLeft',
             onChange: function (index) {
                 var sketch = sketchHolder.children().eq(index);

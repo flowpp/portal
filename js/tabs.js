@@ -37,6 +37,11 @@
                  */
                 type: 'show',
                 /**
+                 * 开启连贯衔接效果
+                 * @type {boolean} 当type 为 slide(横向动画)|animate(纵向动画)  时候才能设置生效
+                 */
+                loop: false,
+                /**
                  * 可以点击来 切换聚焦的按钮组(必须是兄弟元素) 的父级容器
                  * @type {String}
                  */
@@ -128,9 +133,19 @@
                     // 根据不同的动画类型分别处理, 开启动画的需要对整个展示的内容组父容器操作
                     switch(cfg.type){
                         case "slide":
-                            show.animate({
-                                marginLeft: -width * i
-                            });
+                            if (cfg.loop) {
+                                show.animate({
+                                    marginLeft: -width
+                                }, function () {
+                                    show.children().last().after(show.children().first());
+                                    show.css({marginLeft: 0});
+                                });
+                            }
+                            else {
+                                show.animate({
+                                    marginLeft: -width * i
+                                });
+                            }
                             break;
                         case "show": 
                             items.eq(i).show().siblings().hide();
@@ -139,9 +154,19 @@
                             items.eq(i).fadeIn().siblings().fadeOut();
                             break;
                         case "animate":
-                            show.animate({
-                                marginTop: -height * i
-                            });
+                            if (cfg.loop) {
+                                show.animate({
+                                    marginTop: -height
+                                }, function () {
+                                    show.children().last().after(show.children().first());
+                                    show.css({marginTop: 0});
+                                });
+                            }
+                            else {
+                                show.animate({
+                                    marginTop: -height * i
+                                });
+                            }
                             break;
                         default:
                             items.eq(i).addClass(cfg.target_class).siblings().removeClass(cfg.target_class);
