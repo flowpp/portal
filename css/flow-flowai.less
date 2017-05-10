@@ -1,4 +1,6 @@
+
 .flow-flowai {
+    overflow: hidden;
     background: #223637;
     color: #fff;
     .flow-title {
@@ -27,6 +29,7 @@
         }
     }
     .flowai-desc {
+        height: 50px;
         position: relative;
         color: #5a7376;
         font: bold 24px/50px '方正正大黑简体', 'Microsoft Yahei';
@@ -36,7 +39,146 @@
             left: 0;
         }
     }
+    .flowai-sketch {
+        position: relative;
+        height: 600px;
+        padding-left: 0;
+        margin-left: -15px;
+        > div {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -300px 0 0 -300px;
+            width: 600px;
+            height: 600px;
+            display: none;
+            &.current {
+                display: block;
+            }
+        }
+    }
     .visualization {
-        height: 200px;
+        .dashboard {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 600px;
+            height: 600px;
+            background: url(/img/dash-board.png) 0 0 no-repeat;
+        }
+        .chart {
+            width: 0;
+            height: 400px;
+            position: absolute;
+            left: 20px;
+            top: 100px;
+            background: url(/img/chart-line.png) 0 0 no-repeat;
+            transition: width 1s ease;
+            &.animated.fill {
+                width: 600px;
+            }
+        }
+        .shadow {
+            position: absolute;
+            top: 370px;
+            left: -260px;
+            width: 800px;
+            height: 400px;
+            background: url(/img/dashboard-shadow.png) 0 0 no-repeat;
+            transition: all .5s cubic-bezier(.61,-0.32,.96,1.76);
+            opacity: 0;
+            transform: translate3d(-140px, 100px, 0);
+            &.animated.reset {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+    }
+    .deep-monitor,
+    .user-portrait {
+        img {
+            position: absolute;
+        }
+    }
+
+    .deep-monitor {
+        @keyframes halo{
+            0% {
+                opacity: 0;
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                opacity: .8;
+                transform: translate3d(0, -200px, 0);
+            }
+            100% {
+                opacity: 0;
+                transform: translate3d(0, -300px, 0);
+            }
+        }
+        @keyframes float {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                transform: translate3d(0, -30px, 0);
+            }
+            100% {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .shield-golden {
+            animation: float 2s ease-in 0s infinite reverse;
+        }
+        .shield-halo {
+            bottom: 100px;
+            left: 40px;
+            animation-name: halo;
+            animation-timing-function: cubic-bezier(.81,.86,.73,1.01);
+            &:nth-child(4n + 1) {
+                animation-delay: .1s;
+            }
+            &:nth-child(4n + 2) {
+                animation-delay: .7s;
+            }
+            &:nth-child(4n + 3) {
+                animation-delay: .8s;
+            }
+        }
+    }
+
+    @media (max-width: 992px) {
+        .flowai-sketch {
+            width: 400px;
+            > div {
+                transform: scale(.8) translate3d(50px, 50px, 0);
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        .container {
+            overflow: hidden;
+            padding-top: 80px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .flowai-sketch {
+            height: 360px;
+            margin: 0 auto;
+        }
+        .flow-title + p{
+            margin-bottom: 20px;
+        }
+    }
+    @media (max-width: 480px) {
+        .flowai-sketch {
+            width: 240px;
+            > div {
+                transform: scale(.5) translate3d(50px, 50px, 0);
+            }
+        }
     }
 }

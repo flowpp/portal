@@ -15,7 +15,7 @@
                  * 自动轮播的切换时间
                  * @type {Number}
                  */
-                interval: 1200,
+                interval: 3000,
                 /**
                  * 当前聚焦的index
                  * @type {Number}

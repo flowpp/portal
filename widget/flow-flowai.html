@@ -1,48 +1,105 @@
 <div class="section flow-flowai">
     <div class="container">
-        <div class="col-sm-5 flowai-left">
+        <div class="col-sm-5 flowai-left vertical-container">
             <h2 class="flow-title">FlowAI</h2>
             <p>实时移动互联网大数据平台</p>
             <div class="handle row">
                 <a href="javascript:void(0)">
-                    <img src="../img/data-visualization.png" alt="visualization">
+                    <img src="/img/data-visualization.png" alt="visualization">
                 </a>
                 <a href="javascript:void(0)">
-                    <img src="../img/user-portrait.png" alt="user-portrait">
+                    <img src="/img/user-portrait.png" alt="user-portrait">
                 </a>
                 <a href="javascript:void(0)">
-                    <img src="../img/deep-monitor.png" alt="deep-monitor">
+                    <img src="/img/deep-monitor.png" alt="deep-monitor">
                 </a>
             </div>
             <div class="show flowai-desc">
-                <p class="fade">全天候自动流量数据分析xxx</p>
+                <p class="fade">全天候自动流量数据分析</p>
                 <p class="fade">360° 全方位用户勾画</p>
                 <p class="fade">7×24小时实时安全防御</p>
             </div>
         </div>
         <div class="col-sm-7 flowai-sketch">
             <div class="visualization">
-                
+                <div class="dashboard" data-tabanimate="bounceInDown"></div>
+                <div class="chart" data-tabanimate="fill" data-delay="1000"></div>
+                <div class="shadow" data-tabanimate="reset" data-delay="200"></div>
+            </div>
+            <div class="user-portrait">
+                <img src="../img/user-avatar2.png" alt="avatar2" data-tabanimate="zoomInDown"
+                style="top: 200px; left: 300px;">
+                <img src="../img/user-avatar3.png" alt="avatar3" data-tabanimate="zoomInDown"
+                style="top: 20px; left: 400px;">
+                <img src="../img/user-avatar1.png" alt="avatar1" data-tabanimate="zoomInDown"
+                style="top: 0; left: 0;">
+            </div>
+            <div class="deep-monitor">
+                <img src="../img/shield-golden.png" alt="shield-golden"
+                class="shield-golden"
+                style="bottom: 180px; left: 120px;">
+
+                <img src="../img/shield-shadow.png" alt="shield-shadow"
+                data-tabanimate="fadeInUp"
+                style="bottom: 100px; left: 60px;">
+
+                <img src="../img/shield-halo.png" alt="shield-halo"
+                data-tabanimate="halo infinite"
+                class="shield-halo">
+                <img src="../img/shield-halo.png" alt="shield-halo"
+                data-tabanimate="halo infinite"
+                class="shield-halo">
+                <img src="../img/shield-halo.png" alt="shield-halo"
+                data-tabanimate="halo infinite"
+                class="shield-halo">
             </div>
         </div>
     </div>
 
 </div>
 <script>
-    $('.flow-flowai .flowai-left').tabs({
-        type: 'fadeIn',
-        target_class: 'animated fadeInLeft',
-        onChange: function (index) {
-            var sketch = $('.flowai-sketch').children().eq(index);
+    $(function () {
+        var handleHolder = $('.flow-flowai .flowai-left');
+        var sketchHolder = $('.flow-flowai .flowai-sketch');
+        sketchHolder.find('[data-tabanimate]').addClass('animated fade');
 
-        }
+        handleHolder.tabs({
+            // auto: true,
+            type: 'fadeIn',
+            current: 2,
+            target_class: 'animated fadeInLeft',
+            onChange: function (index) {
+                var sketch = sketchHolder.children().eq(index);
+                sketch.addClass('current')
+                    .siblings().removeClass('current')
+                    .find('[data-tabanimate]').each(function () {
+                        var t = $(this); 
+                        var animateName = t.data('tabanimate');
+                        t.removeClass(animateName).addClass('fade');
+                    });
+
+                sketch.find('[data-tabanimate]').each(function () {
+                    var t = $(this);
+                    var animateName = t.data('tabanimate');
+                    var delay = t.data('delay') | 0;
+
+                    setTimeout(function () {
+                        t.removeClass('fade').addClass(animateName);
+                    }, delay);
+                });
+            }
+        });
+        
     });
-    $.addSectionConfig({
-        afterLoad: function () {
-            $('#fixed-header').addClass('inverse');
-        },
-        onLeave: function () {
-            $('#fixed-header').removeClass('inverse');
+    $.addSectionConfig(function () {
+        var header = $('#fixed-header');
+        return {
+            afterLoad: function () {
+                header.addClass('inverse');
+            },
+            onLeave: function () {
+                header.removeClass('inverse');
+            }
         }
     });
 </script>

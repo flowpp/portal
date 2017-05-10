@@ -1,4 +1,4 @@
-<div class="section flow-flowpp" id="flowpp-tab">
+<div class="section flow-flowpp">
     <div class="flowpp-categories">
         <!--<ul class="container" class="handle">
             <li class="flowpp-item flowpp-app active" data-animate="fadeInUp" data-delay="100">
@@ -9,18 +9,21 @@
                 <a href="#view-act">行为识别</a>
             </li>
         </ul>-->
-        <div class="container handle">
-            <a href="#view-app" class="flowpp-app current" data-animate="fadeInUp" data-delay="100">应用识别</a>
-            <a href="#view-act" class="flowpp-act" data-animate="fadeInUp" data-delay="150">行为识别</a>
-            <div class="description">
-                <img src="../img/flowpp-app-desc.png" alt="私有协议，加密协议，无坚不摧" data-animate="fadeInUp" data-delay="250" >                            
+        <div class="container">
+            <div class="handle">
+                <a href="#view-app" class="flowpp-app current" data-animate="fadeInUp" data-delay="100">应用识别</a>
+                <a href="#view-act" class="flowpp-act" data-animate="fadeInUp" data-delay="150">行为识别</a>
+            </div>
+            <div class="description" data-animate="fadeIn" data-delay="500">
+                <p class="fade">私有协议，加密协议，无坚不摧</p>
+                <p class="fade">&nbsp;</p>
             </div>
         </div>
     </div>
     <div class="container background-views">
         <div class="people hidden-md hidden-sm hidden-xs">
             <img class="person" src="../img/flowpp-person.png" alt="person">
-            <!--<img class="person-message" src="../img/flowpp-person-message.png" alt="person-message">-->
+            <img class="person-message" src="../img/flowpp-person-message.png" alt="person-message" data-animate="fadeIn" data-delay="1000">
         </div>
         <div class="demo show" data-animate="fadeInUp" data-delay="300">
             <div id="view-app" class="view-app">
@@ -51,9 +54,16 @@
         <img class="grass2 hidden-sm hidden-xs" src="../img/flowpp-grass2.png" alt="grass2">
         <img class="grass3 hidden-sm hidden-xs" src="../img/flowpp-grass3.png" alt="grass3">
     </div>
-
-
-    <script>
-        $('#flowpp-tab').tabs({ type: 'fade' });
-    </script>
 </div>
+<script>
+    $(function () {
+        var descs = $('.flow-flowpp .description').children();
+        $('.flow-flowpp').tabs({
+            type: 'fade',
+            auto: true,
+            onChange: function (index) {
+                descs.eq(index).addClass('animated fadeInLeft').siblings().removeClass('animated fadeInLeft');
+            }
+        });
+    });
+</script>
