@@ -35,16 +35,66 @@
         transform: rotate(0);
     }
 }
-.flow-about {
-    img {
-        position: absolute;
-    }
 
+@keyframes tentacle-0 {
+    0% {transform: translateX(0)}
+    50% {transform: translateX(20px)}
+    100% {transform: translateX(0)}
+}
+@keyframes tentacle-1 {
+    0% {transform: translateX(-5px)}
+    50% {transform: translateX(10px)}
+    100% {transform: translateX(-5px)}
+}
+@keyframes tentacle-2 {
+    0% {transform: translateX(9px)}
+    50% {transform: translateX(-15px)}
+    100% {transform: translateX(9px)}
+}
+@keyframes tentacle-3 {
+    0% {transform: translateX(0)}
+    50% {transform: translateX(-20px)}
+    100% {transform: translateX(0)}
+}
+@keyframes tentacle-4 {
+    0% {transform: translateX(30px)}
+    50% {transform: translateX(-15px)}
+    100% {transform: translateX(30px)}
+}
+@keyframes tentacle-5 {
+    0% {transform: translateX(-25px)}
+    50% {transform: translateX(-30px)}
+    100% {transform: translateX(-25px)}
+}
+@keyframes tentacle-6 {
+    0% {transform: translateX(-20px)}
+    50% {transform: translateX(-30px)}
+    100% {transform: translateX(-20px)}
+}
+@keyframes tentacle-7 {
+    0% {transform: translateX(-10px)}
+    50% {transform: translateX(-20px)}
+    100% {transform: translateX(-10px)}
+}
+@keyframes tentacle-8 {
+    0% {transform: translateX(-30px)}
+    50% {transform: translateX(30px)}
+    100% {transform: translateX(-30px)}
+}
+@keyframes tentacle-9 {
+    0% {transform: translateX(-30px)}
+    50% {transform: translateX(-20px)}
+    100% {transform: translateX(-30px)}
+}
+
+@BaseColor: #5db87b;
+
+.flow-about {
     .satellite {
         position: absolute;
         left: 50%;
-        margin-left: -50px;
-        top: 10%;
+        margin-left: -90px;
+        top: 60px;
         img{
             transform: translate3d(0, -1000px, 0);
             &.begin-animate {
@@ -52,32 +102,43 @@
                 animation: satellite 3s ease-out;
             }
         }
+        transform: scale(.6);
+        transform-origin: center top;
     }
     .moons {
         position: absolute;
-        right: 6%;
+        width: 15%;
+        right: 2%;
         bottom: 70%;
         margin-bottom: -50px;
-        img {
-            animation: moons-rotate 5s ease-out infinite;
-        }
+        animation: moons-rotate 5s ease-out infinite;
     }
     .about-us {
-        right: 20%;
+        position: absolute;
+        right: 20px;
         bottom: 60%;
+        > img {
+            float: right;
+            margin-left: 10px;
+        }
+        > a {
+            float: right;
+            position: relative;
+            top: 6px;
+        }
     }
 
     .about-content {
         position: absolute;
-        width: 80%;
         left: 0;
-        bottom: 60%;
-        height: 240px;
-        margin-bottom: -250px;
+        width: 100%;
+        height: auto;
+        bottom: 0;
+        font-size: 12px;
         background-color: #3bada3;
-        background-image: linear-gradient(100deg, #239ed7, #5db87b);
+        background-image: linear-gradient(100deg, lighten(#239ed7, 5%), @BaseColor);
         color: #fff;
-        font-size: 16px;
+        text-shadow: 1px 1px 2px #aaa;
         padding: 10px 20px;
         .about-holder {
             position: relative;
@@ -87,39 +148,102 @@
             overflow: hidden;
         }
         .about-inner {
+            padding: 0;
             line-height: 20px;
             li {
-                padding: 8px 0;
+                padding: 2px 0;
                 list-style: none;
             }
         }
-        @media (max-width: 992px) {
-            width: 100%;
-            font-size: 12px;
-            overflow-y: auto;
+        .active-tentacle {
+            position: absolute;
+            display: none;
+        }
+        @media (min-width: 768px) {
+            // tentacle 容器宽度
+            @w: 90px;
+            // tentacle 粗细  共 8 跟
+            @h: 26px;
+
+            bottom: 60%;
+            margin-bottom: -250px;
+            width: 85%;
+            height: @h * 9;
+            font-size: 16px;
             .about-inner {
-                padding: 0;
                 li {
-                    padding: 4px 0;
+                    padding: 8px 0;
+                }
+            }
+            .active-tentacle {
+                display: block;
+                width: @w;
+                height: @h * 9;
+                top: 0;
+                right: -@w;
+                background: linear-gradient(90deg, @BaseColor 0%, @BaseColor 50%, transparent 50%);
+                > i {
+                    display: block;
+                    position: relative;
+                    margin: 0;
+                    padding: 0;
+                    height: @h;
+                    width: @w;
+                    border-radius: @h / 2;
+                    &:nth-child(2n + 1) {
+                        background: @BaseColor;
+                    }
+                    &:nth-child(2n) {
+                        background: #fff;
+                    }
+                    animation: tentacle-0 4s ease-in .2s infinite reverse;
+                    
+                    .icon (@width) {
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            width: @width;
+                            height: @h;
+                            border-radius: @h / 2;
+                            right: -@width - 8px;
+                            top: 0;
+                            background: @BaseColor;
+                        }
+                    }
+
+                    &:nth-child(0) {animation-name: tentacle-0;}
+                    &:nth-child(1) {animation-name: tentacle-1; .icon(@h + 8px);}
+                    &:nth-child(2) {animation-name: tentacle-2;}
+                    &:nth-child(3) {animation-name: tentacle-3;}
+                    &:nth-child(4) {animation-name: tentacle-4;}
+                    &:nth-child(5) {animation-name: tentacle-5;}
+                    &:nth-child(6) {animation-name: tentacle-6;}
+                    &:nth-child(7) {animation-name: tentacle-7; .icon(@h);}
+                    &:nth-child(8) {animation-name: tentacle-8;}
+                    &:nth-child(9) {animation-name: tentacle-9;}
                 }
             }
         }
     }
 
-    @media (max-width: 768px) {
-        .satellite {
-            transform: scale(.6)
-        }
-    }
-
-    &:after {
-        content: " ";
+    .earth-surface {
         position: absolute;
         left: -5%;
         bottom: -10%;
-        width: 50%;
-        height: 100%;
-        background: url(../img/surface.png) no-repeat left bottom;
-        background-size: 100% auto;
+        max-width: 50%;
+        max-height: 80%;
+    }
+    @media (min-width: 768px) {
+        .about-us {
+            right: 16%;
+            a {
+                top: 60px;
+            }
+        }
+    }
+    @media (min-height: 640px) {
+        .satellite {
+            transform: scale(1);
+        }
     }
 }

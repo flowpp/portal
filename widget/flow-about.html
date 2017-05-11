@@ -2,7 +2,10 @@
     <div class="satellite">
         <img src="../img/satellite.png" alt="satellite" data-animate="begin-animate">
     </div>
-    <img src="../img/about-us.png" alt="about-us" class="about-us" data-animate="fadeInLeft">
+    <div class="about-us">
+        <img src="../img/about-us.png" alt="about-us" data-animate="fadeInLeft">
+        <!-- <a href="">招贤纳士</a> -->
+    </div>
     <img src="../img/moons.png" alt="moons" class="moons hidden-xs" data-animate="begin-animate">
 
     <div class="about-content">
@@ -16,8 +19,20 @@
                 <li><span class="fade">成立之初即已获得清华企业家协会（Teec）和（清华）启迪控股等风险投资</span></li>
             </ul>
         </div>
-
+        <div class="active-tentacle">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
     </div>
+    
+    <img src="../img/surface.png" alt="earth-surface" class="earth-surface">
 </div>
 <script>
     $.addSectionConfig(function () {
@@ -25,7 +40,7 @@
         var timeouts = [];
 
         $('.about-inner.show').on('click', function () {
-            items.each(function () {
+            timeouts.length && items.each(function () {
                 var current = $(this);
                 current.html(current.text());
             });
@@ -38,8 +53,8 @@
                 items.each(function (index) {
                     var current = $(this);
                     var text = current.text();
-                    var interval = 3000 / (text.length - 1);
-                    var interval_plus = 3000 * index;
+                    var interval = 2000 / (text.length - 1);
+                    var interval_plus = 3000 * index + 500;
 
                     for (var i = 0; i < text.length; i++) {
                         (function (i) {

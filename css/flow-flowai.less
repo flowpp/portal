@@ -4,7 +4,7 @@
     background: #223637;
     color: #fff;
     .flow-title {
-        margin: 0;
+        margin: 50px 0 20px;
         + p {
             font-size: 24px;
             margin: 0 0 70px;
@@ -37,6 +37,7 @@
             position: absolute;
             top: 0;
             left: 0;
+            right: 0;
         }
     }
     .flowai-sketch {
@@ -156,6 +157,7 @@
         }
     }
     @media (max-width: 768px) {
+        text-align: center;
         .container {
             overflow: hidden;
             padding-top: 80px;
@@ -169,8 +171,11 @@
             height: 360px;
             margin: 0 auto;
         }
-        .flow-title + p{
-            margin-bottom: 20px;
+        .flow-title{
+            margin: 0;
+            + p {
+                margin-bottom: 20px;
+            }
         }
     }
     @media (max-width: 480px) {
@@ -178,7 +183,13 @@
             width: 240px;
             > div {
                 transform: scale(.5) translate3d(50px, 50px, 0);
+                transform-origin: 50% 40%;
             }
+        }
+    }
+    @media (max-height: 576px) {
+        .container {
+            padding-top: 50px;
         }
     }
 }

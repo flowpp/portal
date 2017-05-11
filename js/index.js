@@ -57,5 +57,11 @@ $include["tabs.js"];
                 conf && conf.onLeave && conf.afterLoad(section);
             },
         });
+
+        $('[data-toggle="tooltip"]').tooltip();
+        $('#apply-to-contavt-us').on('click', function (e) {
+            e.stopPropagation();
+            $('.apply-to-contavt-us').dropdown('toggle');
+        });
     });
 })(jQuery);

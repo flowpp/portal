@@ -15,16 +15,26 @@
         transform: translateX(-15000px);
     }
 }
-
-@keyframes airship-inner {
+@keyframes airship {
     0% {
-        transform: rotate(-2deg) translate3d(80px, 4px, 0);
+        transform: translate3d(50px, 0, 0);
     }
     56% {
-        transform: rotate(-1deg) translate3d(0, 1px, 0);
+        transform: translate3d(0, 0, 0);
     }
     100% {
-        transform: rotate(-2deg) translate3d(80px, 4px, 0);
+        transform: translate3d(50px, 0, 0);
+    }
+}
+@keyframes airship-inner {
+    0% {
+        transform: rotate(-4deg) translate3d(80px, 4px, 0);
+    }
+    56% {
+        transform: rotate(-2deg) translate3d(0, 4px, 0);
+    }
+    100% {
+        transform: rotate(-4deg) translate3d(80px, 4px, 0);
     }
 }
 
@@ -48,7 +58,7 @@
     .context-view {
         position: absolute;
         width: 100%;
-        bottom: 45%;
+        bottom: 50%;
         color: #fff;
         h2 {
             font-weight: 100;
@@ -57,7 +67,6 @@
             max-width: 90%;
         }
         .btn-primary {
-            cursor: not-allowed;
             background: #90d8e0;
             border-color: #90d8e0;
             color: lighten(@Color, 15%);
@@ -81,9 +90,7 @@
             left: 56px;
             animation: airship-inner 10s infinite;
         }
-        &.fadeOut {
-            display: none !important;
-        }
+        animation: airship 10s infinite;
     }
 
     .wave {
@@ -105,28 +112,31 @@
     .runtime-sum {
         @Width: 600px;
         position: absolute;
+        left: 0;
+        right: 0;
         bottom: 0;
         padding: 20px;
-        left: 50%;
-        margin-left: -@Width / 2;
+        margin: 0;
         height: @WaveHiehgt - 50px;
         color: @Color;
+        
         .number-holder {
             @NumHeight: 72px;
+            width: 292px;
+            margin: 0 auto;
             font-size: 40px;
             height: @NumHeight;
             line-height: @NumHeight;
             > span {
                 float: left;
-                width: 30px;
+                width: 28px;
                 height: @NumHeight;
             }
             .number {
                 text-indent: -9999em;
                 text-align: center;
-                width: 40px;
                 line-height: @NumHeight;
-                margin-right: 20px;
+                margin-right: 4px;
                 border-radius: 11px;
                 background: url(../img/icon-nums.png) no-repeat center 4px #cdecf8;
                 transition: all .5s ease;
@@ -134,6 +144,7 @@
             .symbol {
                 margin-left: -20px;
                 text-align: center;
+                display: none;
             }
             .loop(@counter) when (@counter < 10) {
                 .number-@{counter} {
@@ -144,21 +155,30 @@
             }
             .loop(0);
         }
-        @media (max-width: 768px) {
-            width: 100%;
-            left: 0;
-            margin: 0;
+        @media (min-width: 768px) {
+            left: 50%;
+            margin-left: -@Width / 2;
             .number-holder {
-                margin: 0 auto;
-                width: 320px;
+                width: 100%;
                 .number {
-                    width: 28px;
-                    margin-right: 4px;
+                    width: 40px;
+                    margin-right: 20px;
                 }
                 .symbol {
-                    display: none;
+                    display: block;
                 }
             }
         }
+    }
+}
+#collapse-contact-us {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    padding: 0 20px 20px;
+    overflow: hidden;
+    > .inner {
+        max-width: 600px;
+        margin: 0 auto;
     }
 }

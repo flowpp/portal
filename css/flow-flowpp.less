@@ -53,8 +53,8 @@
         .demo {
             position: absolute;
             right: -25%;
-            // bottom: 0;
-            top: 300px;
+            bottom: 0;
+            // top: 300px;
             width: 1142px;
             height: 702px;
             z-index: 59;
@@ -63,6 +63,13 @@
             overflow: visible;
             img {
                 position: absolute;
+            }
+            > div {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
             }
             .view-app {
                 overflow: visible;
@@ -197,6 +204,7 @@
                 width: 100%;
             }
         }
+        
 
     }
     
@@ -205,9 +213,14 @@
 
 @media (max-width: 992px) {
     .flow-flowpp {
+        .handle, 
+        .description {
+            background: rgba(255, 255, 255, .7);
+        }
         .background-views {
-            .demo {
-                bottom: -200px;
+            .demo > div{
+                transform: scale(.8) translate3d(0, -50px, 0);
+                transform-origin: 100% 100%;
             }
         }
         .flowpp-categories {
@@ -227,8 +240,8 @@
 @media (max-width: 480px) {
     .flow-flowpp {
         .background-views {
-            .demo {
-                right: -85%;
+            .demo > div{
+                transform: scale(.45);
             }
         }
     }

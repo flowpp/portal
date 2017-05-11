@@ -133,6 +133,7 @@
                     // 根据不同的动画类型分别处理, 开启动画的需要对整个展示的内容组父容器操作
                     switch(cfg.type){
                         case "slide":
+                            show.stop();
                             if (cfg.loop) {
                                 show.animate({
                                     marginLeft: -width
@@ -154,6 +155,7 @@
                             items.eq(i).fadeIn().siblings().fadeOut();
                             break;
                         case "animate":
+                            show.stop();
                             if (cfg.loop) {
                                 show.animate({
                                     marginTop: -height
