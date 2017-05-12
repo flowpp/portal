@@ -8,7 +8,7 @@ exports["localhost"] = {
     buildFilter: function(path){
         var regs = [
             /\/(js|css)(\/index\..*)?($|\?.*)/,
-            /\/img(\/.*)?/,
+            /\/(img|fonts)(\/.*)?/,
             /\/(index\.html|favicon\.ico)?($|\?.*)/
         ];
 

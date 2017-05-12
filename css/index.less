@@ -1,6 +1,7 @@
 @import (inline) url("../node_modules/bootstrap/dist/css/bootstrap.css");
 @import (inline) url("../node_modules/fullpage.js/dist/jquery.fullpage.css");
 @import (inline) url("../node_modules/animate.css/animate.css");
+@import (inline) url("../node_modules/font-awesome/css/font-awesome.css");
 body {
     -webkit-font-smoothing: antialiased;
 }
@@ -17,6 +18,11 @@ body {
     @FontColor: #239ed7;
     .dropdown-menu {
         background: transparent;
+        .fa {
+            display: inline-block;
+            width: 24px;
+            line-height: 20px;
+        }
     }
     .show-qrcode {
         position: relative;
@@ -49,6 +55,7 @@ body {
     }
     .navbar-collapse {
         box-shadow: none;
+        max-height: 100%;
         .navbar-nav {
             a {
                 color: @FontColor;

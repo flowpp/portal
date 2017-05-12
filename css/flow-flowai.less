@@ -4,11 +4,11 @@
     background: #223637;
     border: 1px solid #223637;
     color: #fff;
+    text-align: center;
     .flow-title {
-        margin: 50px 0 20px;
         + p {
-            font-size: 24px;
-            margin: 0 0 70px;
+            font-size: 18px;
+            margin: 20px 0 30px;
         }
     }
     .handle {
@@ -43,20 +43,23 @@
     }
     .flowai-sketch {
         position: relative;
-        height: 600px;
-        padding-left: 0;
-        margin-left: -15px;
+        margin: 0 auto;
+        overflow: visible;
+        width: 240px;
+        height: 100%;
         > div {
             position: absolute;
             left: 50%;
             top: 50%;
-            margin: -300px 0 0 -300px;
+            margin: -250px 0 0 -300px;
             width: 600px;
             height: 600px;
             display: none;
             &.current {
                 display: block;
             }
+            transform: scale(.5) translate3d(30px, 0, 0);
+            transform-origin: 50% 0%;
         }
     }
     .visualization {
@@ -149,43 +152,50 @@
         }
     }
 
-    @media (max-width: 992px) {
-        .flowai-sketch {
-            width: 400px;
-            > div {
-                transform: scale(.8) translate3d(50px, 50px, 0);
-            }
-        }
-    }
-    @media (max-width: 768px) {
-        text-align: center;
+    @media (min-width: 480px){
         .flowai-sketch {
             height: 360px;
-            margin: 0 auto;
         }
-        .flow-title{
-            + p {
-                margin-bottom: 20px;
+    }
+    @media (min-width: 768px) {
+        text-align: left;
+        .flowai-left {
+            height: 100%;
+            .flow-left-inner {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                margin-top: -200px;
+            }
+        }
+        .flowai-sketch {
+            width: 400px;
+            height: 100%;
+            > div {
+                transform: scale(.8);
             }
         }
     }
-    @media (max-width: 480px) {
+    @media (min-width: 992px) {
+        text-align: left;
         .flowai-sketch {
-            width: 240px;
+            width: 500px;
             > div {
-                transform: scale(.5) translate3d(50px, 50px, 0);
-                transform-origin: 50% 40%;
+                transform: scale(1);
             }
         }
     }
 
+
     .container {
-        transform: translate3d(0, 80px, 0);
-        @media (max-width: 768px) {
-            transform: translate3d(0, 0, 0);
-        }
-        @media (max-width: 360px) {
-            transform: translate3d(0, 50px, 0);
-        }
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        padding-top: 100px;
+    }
+    @media (max-height: 640px) {
+        padding-top: 50px;
     }
 }

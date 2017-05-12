@@ -4,7 +4,7 @@
   "description": "Flowpp portal",
   "main": "index.html",
   "scripts": {
-    "start": "f2eserver start",
+    "start": "cp -rf ./node_modules/font-awesome/fonts ./ & f2eserver start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +21,7 @@
   "devDependencies": {
     "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
     "fullpage.js": "^2.9.4",
     "jquery": "^3.2.1"
   }

@@ -56,6 +56,15 @@
         <p data-animate="fadeInUp" data-delay="400">
             <img src="/img/icon-channels.png" alt="icon-channels">
         </p>
+        <!-- <p>
+            <i class="fa fa-weixin"></i>
+            <i class="fa fa-car"></i>
+            <i class="fa fa-home"></i>
+            <i class="fa fa-hospital-o"></i>
+            <i class="fa fa-graduation-cap"></i>
+            <i class="fa fa-money"></i>
+            <i class="fa fa-plane"></i>
+        </p> -->
         <p>&nbsp;</p>
         <p data-animate="fadeInUp" data-delay="0">
             <a class="btn btn-primary" role="button"
@@ -68,7 +77,7 @@
     <div class="wave wave1"></div>
     <div class="wave wave2"></div>
     <div class="runtime-sum text-left">
-        <p>实时用户行为采集数</p>
+        <p>实时用户行为采集数  <i id="average-sum" style="font-size: 12px; margin-left: 30px;"></i> </p>
         <div class="number-holder"></div>
     </div>
     <img src="/img/mini-mouse.png"
@@ -80,11 +89,14 @@
     $.addSectionConfig(function () {
         var logo = $('.flow-logo');
         var header = $('#fixed-header');
+        var average = $('#average-sum');
         var combine = logo.add(header);
         var numHolder = $('.runtime-sum .number-holder');
         
         var sum = 0;
         var needUpdate = false;
+        var beginSum = 0;
+        var beginTime = 0;
         var updateData = function updateData () {
             !needUpdate
             ? setTimeout(updateData, 500)
@@ -92,6 +104,13 @@
                 url: 'http://180.76.162.170:1337/getSum',
                 dataType: 'jsonp',
                 success: function (data) {
+                    if (!beginTime) {
+                        beginTime = +new Date;
+                        beginSum = data;
+                    }
+                    else {
+                        average.parent().attr( 'title', (1000 * (data - beginSum) / (+new Date - beginTime)).toFixed(3) + ' / s' );
+                    }
                     sum = data;
                     setTimeout(updateData, 3000);
                 }
