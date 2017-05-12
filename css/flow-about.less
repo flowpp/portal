@@ -167,7 +167,8 @@
 
             bottom: 60%;
             margin-bottom: -250px;
-            width: 85%;
+            width: 112%;
+            left: -20%; // 用 left 补齐因 .container margin 可能出现的图片左侧空白，同时 width 要反补齐。
             height: @h * 9;
             font-size: 16px;
             padding: 10px 30px;
@@ -225,6 +226,11 @@
                 }
             }
         }
+        
+        @media (min-width: 1200px) {
+            width: 132%;
+            left: -40%;
+        }
     }
 
     .earth-surface {
@@ -236,7 +242,7 @@
     }
     @media (min-width: 768px) {
         .about-us {
-            right: 16%;
+            right: 11%;
             a {
                 top: 60px;
             }
