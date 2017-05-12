@@ -2,6 +2,7 @@
 .flow-flowai {
     overflow: hidden;
     background: #223637;
+    border: 1px solid #223637;
     color: #fff;
     .flow-title {
         margin: 50px 0 20px;
@@ -158,21 +159,11 @@
     }
     @media (max-width: 768px) {
         text-align: center;
-        .container {
-            overflow: hidden;
-            padding-top: 80px;
-            position: absolute;
-            left: 0;
-            top: 0;
-            right: 0;
-            bottom: 0;
-        }
         .flowai-sketch {
-            height: 360px;
+            height: 300px;
             margin: 0 auto;
         }
         .flow-title{
-            margin: 0;
             + p {
                 margin-bottom: 20px;
             }
@@ -187,9 +178,11 @@
             }
         }
     }
-    @media (max-height: 576px) {
-        .container {
-            padding-top: 50px;
+
+    .container {
+        transform: translate3d(0, 80px, 0);
+        @media (max-width: 768px) {
+            transform: translate3d(0, 50px, 0);
         }
     }
 }

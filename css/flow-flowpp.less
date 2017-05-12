@@ -29,6 +29,13 @@
 }
 
 .flow-flowpp {
+    .flow-title{
+        margin: 0;
+        + p {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    }
     .container {
         height: 100%;
         position: relative;
@@ -81,7 +88,7 @@
                         top: 4px;
                     }
                     img:nth-of-type(2) {
-                        animation: icon .3s linear 3s;
+                        animation: icon .3s linear 1s;
                         animation-fill-mode:forwards;
                     }
                     img:nth-of-type(3) {
@@ -210,22 +217,25 @@
     
 }
 
-
+@media (max-width: 1024px) {
+    .flow-flowpp {
+        .background-views {
+            .demo > div{
+                transform: scale(.8);
+                transform-origin: 100% 100%;
+            }
+        }
+    }
+}
 @media (max-width: 992px) {
     .flow-flowpp {
         .handle, 
         .description {
             background: rgba(255, 255, 255, .7);
         }
-        .background-views {
-            .demo > div{
-                transform: scale(.8) translate3d(0, -50px, 0);
-                transform-origin: 100% 100%;
-            }
-        }
         .flowpp-categories {
             .container {
-                top: 15%;
+                top: 50px;
                 text-align: center;
                 // transition: top .3s linear;
             }
