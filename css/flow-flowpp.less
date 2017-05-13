@@ -79,6 +79,22 @@
                 right: 0;
                 top: 0;
                 bottom: 0;
+                transform: scale(.45);
+                transform-origin: 100% 100%;
+                @media (min-width: 480px) {
+                    transform: scale(.6);
+                }
+                @media (min-width: 992px) {
+                    transform: scale(.8);
+                }
+                @media (min-width: 1280px) and (min-height: 720px) {
+                    transform: scale(1);
+                }
+            }
+            .phone-shell {
+                position: absolute;
+                right: 0;
+                bottom: 0;
             }
             .view-app {
                 overflow: visible;
@@ -210,16 +226,6 @@
     
 }
 
-@media (max-width: 1024px) {
-    .flow-flowpp {
-        .background-views {
-            .demo > div{
-                transform: scale(.8);
-                transform-origin: 100% 100%;
-            }
-        }
-    }
-}
 @media (max-width: 992px) {
     .flow-flowpp {
         .handle, 
@@ -240,12 +246,3 @@
     }
 }
 
-@media (max-width: 480px) {
-    .flow-flowpp {
-        .background-views {
-            .demo > div{
-                transform: scale(.45);
-            }
-        }
-    }
-}
