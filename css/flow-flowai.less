@@ -46,12 +46,16 @@
             right: 0;
         }
     }
+    .flowai-left {
+        padding-top: 50px;
+        height: 50%;
+    }
     .flowai-sketch {
+        height: 50%;
         position: relative;
         margin: 0 auto;
         overflow: visible;
         width: 240px;
-        height: 100%;
         > div {
             position: absolute;
             left: 50%;
@@ -64,7 +68,6 @@
                 display: block;
             }
             transform: scale(.5) translate3d(30px, 0, 0);
-            transform-origin: 50% 0%;
         }
     }
     .visualization {
@@ -157,14 +160,14 @@
         }
     }
 
-    @media (min-width: 480px){
-        .flowai-sketch {
-            height: 360px;
-            > div {
-                transform-origin: 50% 50%;
-            }
-        }
+    .container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
     }
+
     @media (min-width: 768px) {
         text-align: left;
         .flowai-left {
@@ -172,37 +175,27 @@
             .flow-left-inner {
                 position: absolute;
                 top: 50%;
-                margin-top: -200px;
+                margin-top: -170px;
             }
         }
         .flowai-sketch {
             width: 400px;
             height: 100%;
             > div {
-                transform: scale(.8);
+                transform: scale(.7);
             }
         }
     }
     @media (min-width: 992px) {
         text-align: left;
         .flowai-sketch {
-            width: 100% * 7 / 12;
             > div {
-                transform: scale(1);
+                transform: scale(1) translate3d(120px, 30px, 0);
             }
         }
     }
 
 
-    .container {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        padding-top: 50px;
-    }
-    @media (max-height: 640px) {
-        padding-top: 50px;
-    }
+    
+
 }
