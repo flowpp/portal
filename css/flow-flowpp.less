@@ -13,6 +13,8 @@
 @line6-left: @line1-left + @col-offset-left * 4.4;
 @line6-top: @line1-top + @col-offset-top * 4.4;
 
+@activeColor: #239ed7;
+
 @keyframes icon {
     0% {
         top: 0;
@@ -167,35 +169,26 @@
                 display: inline-block;
                 width: 70px;
                 height: 80px;
-                text-indent: -9999px;
-                background-repeat: no-repeat;
-                background-position: center top;
                 margin-right: 60px;
-                
+                text-align: center;
+                .fa {
+                    display: block;
+                    margin: 10px 0;
+                }
+                color: #666;
+                text-decoration: none;
+                font-size: 16px;
+                &:hover,
+                &.active,
+                &.current {
+                    color: @activeColor;
+                }
+
                 &:nth-last-of-type(1) {
                     margin-right: 0;
                 }
             }
-
-            .flowpp-app {
-                background-image: url(../img/flowpp-app.png);
-                &:hover,
-                &.active,
-                &.current {
-                    background-image: url(../img/flowpp-app-active.png);
-                    background-position: center 1px; // 修复图片大小问题
-                }
-            }
-            .flowpp-act {
-                position: relative;
-                top: -1px; // 修复图片大小问题
-                background-image: url(../img/flowpp-act.png);
-                &:hover,
-                &.active,
-                &.current {
-                    background-image: url(../img/flowpp-act-active.png);
-                }
-            }
+            
         }
         
         .description {

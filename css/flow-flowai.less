@@ -8,7 +8,7 @@
     .flow-title {
         + p {
             font-size: 18px;
-            margin: 20px 0 30px;
+            margin: 20px 0 20px;
         }
     }
     .handle {
@@ -17,11 +17,16 @@
             overflow: hidden;
             float: left;
             width: 100px;
-            height: 78px;
+            height: 100px;
             padding: 0 15px;
             opacity: .7;
+            color: #fff;
+            text-decoration: none;
+            .fa {
+                display: block;
+            }
+            &:hover,
             &.current {
-                height: 88px;
                 opacity: 1;
             }
             @media (max-width: 768px) {
@@ -155,6 +160,9 @@
     @media (min-width: 480px){
         .flowai-sketch {
             height: 360px;
+            > div {
+                transform-origin: 50% 50%;
+            }
         }
     }
     @media (min-width: 768px) {
@@ -163,7 +171,6 @@
             height: 100%;
             .flow-left-inner {
                 position: absolute;
-                left: 0;
                 top: 50%;
                 margin-top: -200px;
             }
@@ -178,8 +185,11 @@
     }
     @media (min-width: 992px) {
         text-align: left;
+        .flow-left-inner {
+            left: 10%;
+        }
         .flowai-sketch {
-            width: 500px;
+            width: 100% * 7 / 12;
             > div {
                 transform: scale(1);
             }
