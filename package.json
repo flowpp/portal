@@ -1,11 +1,12 @@
 {
   "name": "flow-portal",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Flowpp portal",
   "main": "index.html",
   "scripts": {
-    "start": "cp -rf ./node_modules/font-awesome/fonts ./ & f2eserver start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "cp -rf ./node_modules/font-awesome/fonts ./ ",
+    "start": "./node_modules/.bin/f2e start",
+    "build": "./node_modules/.bin/f2e build -t 3000"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,10 @@
   "author": "shiyangyang@flowpp.com",
   "license": "MIT",
   "devDependencies": {
+    "f2e-server": "^2.3.3",
+    "lodash": "^4.17.4"
+  },
+  "dependencies": {
     "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
