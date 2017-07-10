@@ -11,9 +11,7 @@ module.exports = {
      * 使用 less 编译为css, 使用 less 配置
      * @type {Object}
      */
-    useLess: {
-        compress: false
-    },
+    useLess: true,
     buildFilter: function(path){
         var regs = [
             /^(js|css|img|fonts)(\/.*)?/,
