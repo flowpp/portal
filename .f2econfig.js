@@ -1,16 +1,7 @@
 const path = require('path')
 
 module.exports = {
-    // host: 'f2e.local.cn',
-    /**
-     * 是否开启自动刷新, 默认为 true
-     * @type {Boolean}
-     */
     livereload: true,
-    /**
-     * 使用 less 编译为css, 使用 less 配置
-     * @type {Object}
-     */
     useLess: true,
     buildFilter: function(path){
         var regs = [
@@ -39,29 +30,14 @@ module.exports = {
         }
         return false;
     },
+    shouldUseMinify: (pathname, data) => {
+        // 单文件超过20K 不进行压缩
+        return data.toString().length < 20 * 1024
+    },
     middlewares: [
-        (conf) => ({
-            onSet (pathname, data) {
-                if (pathname.match(/^(index)\b/)) {
-                    let str = data.toString()
-                    try {
-                        str = require('lodash').template(str)()
-                    } catch (e) {
-                        console.log(pathname, e)
-                    }
-                    return str
-                }
-            }
-        })
+        {test: /^(index)\b/, middleware: 'template'}
     ],
-    /**
-     * 是否支持 gzip
-     * @type {Boolean}
-     */
+    onRoute: pathname => pathname || 'index.html',
     gzip: true,
-    /**
-     * 资源数据目录, 未设置的时候 build 中间件不开启
-     * @type {local-url}
-     */
     output: path.resolve(__dirname, '../flow-portal-out')
 }

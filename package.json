@@ -20,7 +20,7 @@
   "author": "shiyangyang@flowpp.com",
   "license": "MIT",
   "devDependencies": {
-    "f2e-server": "^2.3.4",
+    "f2e-server": "^2.5.7",
     "lodash": "^4.17.4"
   },
   "dependencies": {
