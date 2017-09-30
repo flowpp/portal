@@ -30,10 +30,6 @@ module.exports = {
         }
         return false;
     },
-    shouldUseMinify: (pathname, data) => {
-        // 单文件超过20K 不进行压缩
-        return data.toString().length < 20 * 1024
-    },
     middlewares: [
         {test: /^(index)\b/, middleware: 'template'}
     ],
