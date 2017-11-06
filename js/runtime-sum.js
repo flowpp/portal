@@ -1,6 +1,6 @@
 (function ($) {
     var defaultCfg = {
-        format: '000,000,000',
+        format: '0,000,000,000',
         update: false,
         timeout: 100,
         numberclass: 'number',
@@ -46,7 +46,7 @@
                 var num = Number(cfg.getData.call(t)) || 0;
                 if (num !== last_num) {
                     last_num = num;
-                    var str = (format.replace(/\D/g, '') + num).substr(-format.length + 2);
+                    var str = (format.replace(/\D/g, '') + num).substr(-format.length + 3);
                     nums.each(function (index) {
                         $(this).attr({'class': nc + ' ' + nc + '-' + str.charAt(index)});
                     });

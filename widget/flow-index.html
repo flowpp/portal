@@ -101,7 +101,7 @@
             !needUpdate
             ? setTimeout(updateData, 500)
             : $.ajax({
-                url: 'http://180.76.162.170:1337/getSum',
+                url: 'http://flowpp.com:8088/flowpp/logger/counter',
                 dataType: 'jsonp',
                 success: function (data) {
                     if (!beginTime) {

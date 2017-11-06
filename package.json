@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "install": "cp -rf ./node_modules/font-awesome/fonts ./ ",
-    "start": "./node_modules/.bin/f2e start",
+    "start": "f2e start",
     "deploy": "scp -r ../flow-portal-out/* root@flowpp.com:/usr/share/nginx/html/",
     "build": "f2e build"
   },
@@ -21,14 +21,14 @@
   "author": "shiyangyang@flowpp.com",
   "license": "MIT",
   "devDependencies": {
-    "f2e-server": "^2.5.7",
+    "f2e-server": "^2.6.3",
     "lodash": "^4.17.4"
   },
   "dependencies": {
     "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
-    "fullpage.js": "^2.9.4",
+    "fullpage.js": "^2.9.5",
     "jquery": "^3.2.1"
   }
 }

@@ -33,7 +33,7 @@ module.exports = {
     middlewares: [
         {test: /^(index)\b/, middleware: 'template'}
     ],
-    onRoute: pathname => pathname || 'index.html',
+    // onRoute: pathname => pathname || 'index.html',
     gzip: true,
     output: path.resolve(__dirname, '../flow-portal-out')
 }
